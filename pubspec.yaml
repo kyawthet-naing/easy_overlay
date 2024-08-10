@@ -1,6 +1,6 @@
 name: easy_overlay
-description: "Simplify the addition of loading screens and overlays in your Flutter app with this package."
-version: 1.0.0
+description: "Simplify the addition of loading screens, overlays and toast messages in your Flutter app with this package."
+version: 1.0.1
 homepage: https://github.com/kyawthet-naing/easy_overlay.git
 
 environment:
@@ -10,7 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
 
 dev_dependencies:
   flutter_test:

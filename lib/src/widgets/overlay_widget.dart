@@ -50,24 +50,27 @@ class _OverlayWidgetState extends State<OverlayWidget>
 
   @override
   Widget build(BuildContext context) {
-    return FadeTransition(
-      opacity: _opacityAnimation,
-      child: GestureDetector(
-        onTap: widget.barrierDismissible
-            ? () {
-                widget.onTap?.call();
-                _animationController.reverse(); // Fade out animation on tap
-              }
-            : null,
-        child: Container(
-          color: widget.barrierColor,
-          constraints: const BoxConstraints.expand(),
-          child: GestureDetector(
-            onTap: () {
-              //To ensure the widget doesn’t close when its child is clicked.
-            },
-            child: Center(
-              child: widget.child ?? const DefaultWidget(),
+    return Material(
+      color: Colors.transparent, // Transparent background
+      child: FadeTransition(
+        opacity: _opacityAnimation,
+        child: GestureDetector(
+          onTap: widget.barrierDismissible
+              ? () {
+                  widget.onTap?.call();
+                  _animationController.reverse(); // Fade out animation on tap
+                }
+              : null,
+          child: Container(
+            color: widget.barrierColor,
+            constraints: const BoxConstraints.expand(),
+            child: GestureDetector(
+              onTap: () {
+                //To ensure the widget doesn’t close when its child is clicked.
+              },
+              child: Center(
+                child: widget.child ?? const DefaultWidget(),
+              ),
             ),
           ),
         ),

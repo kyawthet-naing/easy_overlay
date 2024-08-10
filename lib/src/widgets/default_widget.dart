@@ -5,8 +5,20 @@ class DefaultWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CircularProgressIndicator(
-      strokeWidth: 3,
+    return Container(
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.black45,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: const SizedBox(
+        height: 30,
+        width: 30,
+        child: CircularProgressIndicator(
+          strokeWidth: 2,
+          valueColor: AlwaysStoppedAnimation(Colors.white),
+        ),
+      ),
     );
   }
 }

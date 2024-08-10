@@ -1,20 +1,13 @@
-# Easy Overlay
+## Easy Overlay
 
-It simplifies the process of adding visual feedback for ongoing tasks or data retrieval, enhancing user experience. With customizable options for different types of overlays and easy integration, you can efficiently manage loading states and ensure smooth interaction in your application. Whether you need a default CircularProgressIndicator or a custom widget, this package provides a flexible solution for various situations, such as:
-
-- **Fetching Data**: Display a loading overlay while retrieving data from an API or database.
-- **Executing Background Tasks**: Show an overlay during background operations like file processing or uploads.
-- **State Transitions**: Indicate transitions between screens or states with a loading overlay.
-- **User Actions**: Provide feedback during user-initiated actions, such as form submissions or searches.
-
-## Getting Started
-
-The Easy Overlay package offers flexible options for displaying overlays in your Flutter application, whether you prefer using context or not, and allows for a highly customizable UI.
+The Easy Overlay package makes it simple to add visual feedback to your Flutter app, enhancing user experience. It offers flexible options for displaying customizable overlays and toast notifications, whether you prefer using context or not. Whether you need a CircularProgressIndicator, a custom widget, or flexible toast messages, this package provides a highly customizable solution for managing loading states and interactions.
 
 - [Installation](#installation)
 - [With Context](#with-context)
 - [Without Context](#without-context)
 - [Customizable UI](#customizable-ui)
+- [Toast Message With Context](#toast-message-with-context)
+- [Toast Message Without Context](#toast-message-without-context)
 
 ## Installation
 
@@ -119,8 +112,8 @@ You can customize the overlay by passing a custom widget and configuring various
 
 **Custom Widget**
 
-- Display a custom widget by specifying it in the ```EasyOverlay.show()``` method.
-- By default, a ```CircularProgressIndicator``` is shown if no custom widget is provided.
+- Display a custom widget by specifying it in the `EasyOverlay.show()` method.
+- By default, a `CircularProgressIndicator` is shown if no custom widget is provided.
 
 ```dart
 EasyOverlay.show(
@@ -129,10 +122,12 @@ EasyOverlay.show(
 ```
 
 **Customization Options**
+
 - barrierColor: Specify any color to customize the overlay’s background color.
 - barrierDismissible: Set to true or false to control whether tapping outside the overlay dismisses it.
 
 **Example**
+
 ```dart
 EasyOverlay.show(
   //your custom widget
@@ -143,6 +138,35 @@ EasyOverlay.show(
   barrierDismissible: false,
   barrierColor: Colors.black38,
 );
+```
+
+## Toast Message With Context
+
+**Example**
+
+```dart
+ EasyOverlayCtx.showToast(
+        context,
+        message: "Default Toast With Context",
+        alignment: Alignment.bottomCenter,
+        decoration: ToastDecoration.origin.copyWith(
+        backgroundColor: Colors.cyan,
+        ),
+    );
+```
+
+## Toast Message Without Context
+
+**Example**
+
+```dart
+   EasyOverlay.showToast(
+        child: const CustomUI(),
+        alignment: Alignment.topRight,
+        duration: const Duration(milliseconds: 1500),
+        animationType: AnimationType.scaleFade,
+        animationDuration: const Duration(milliseconds: 400),
+  );
 ```
 
 ## Credits
